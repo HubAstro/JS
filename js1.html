@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body id="bg">
+	<button onclick="demo()">Color Change</button>
+	<script>
+		function demo() {
+  			var r = Math.floor(Math.random() * 256);
+			var g = Math.floor(Math.random() * 256);
+			var b = Math.floor(Math.random() * 256);
+			document.getElementById("bg").style.backgroundColor = "rgb("+r+", "+g+", "+b+")";
+		}
+	</script>
+</body>
+</html>
