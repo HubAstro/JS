@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		Calculator
+	</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+  	<style type="text/css">
+  		@media(max-width: 767px){
+  			.selectbox{
+  				margin-top: 20px;
+  			}
+  			.btn{
+  				margin-top: 20px;
+  			}
+  			#result{
+  				margin-left: 13px;
+  			}
+  		}
+  		@media(max-width:575px){
+  			.container{
+  				width: 95%;
+  			}
+  		}
+  	</style>
+</head>
+<body class="bg-info">
+	<div class="container bg-white mt-4" style="border-radius: 4px;">
+		<h1 class="display-4 pt-4 text-info">Calculator</h1>
+		<p>Enter values</p>
+		<form>
+			<div class="row form-group">
+				<div class="col-md-3">
+					<input class="form-control bg-light" id="value1" type="text" placeholder="Value 1"style="border	: none;">
+				</div>
+				<div class="col-md-2 selectbox">
+					<div class="form-group">
+						<select class="form-control bg-light" id="cal" style="border: none;">
+    						<option>+</option>
+    						<option>-</option>
+   							<option>x</option>
+    						<option>/</option>
+  						</select>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<input class="form-control bg-light" id="value2" type="text" placeholder="Value 2"style="border:none;">
+				</div>
+				<div class="col-md-2">
+					<button type="button" onclick="calc()" class="btn btn-info mb-4" style="padding: 5px 50px 5px 50px;">=</button>
+				</div>
+				<div class="col-md-2 pt-1">
+					<p id="result">0</p>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script type="text/javascript">
+		function add(x,y){
+			document.getElementById("result").innerHTML = x+y;
+		}
+		function sub(x,y){
+			document.getElementById("result").innerHTML = x-y;
+		}
+		function mul(x,y){
+			document.getElementById("result").innerHTML = x*y;
+		}
+		function div(x,y){
+			if(y==0){
+				window.alert("Can't Divide by zero");
+			}
+			else{
+				document.getElementById("result").innerHTML = x/y;
+			}
+		}
+		function calc(){
+			var x = parseFloat(document.getElementById('value1').value);
+			var y = parseFloat(document.getElementById('value2').value);
+			var calc = document.getElementById('cal').value;
+
+			if (isNaN(x)|| isNaN(y)) {
+				window.alert("Enter Valid number");
+			}
+			else{
+				switch(calc){
+					case "+":
+						add(x,y);
+						break;
+					case "-":
+						sub(x,y);
+						break;
+					case "x":
+						mul(x,y);
+						break;
+					case "/":
+						div(x,y);
+						break;
+				}
+			}
+		}
+	</script>
+</body>
+</html>
